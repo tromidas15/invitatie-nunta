@@ -156,7 +156,7 @@
       margin: 10px 0;
     }
     .decorative-line {
-      width: 50%;
+      width: 100%;
       height: 2px;
       background: #e7d5c4;
       margin: 20px auto;
@@ -244,6 +244,27 @@
         border-bottom: none;
       }
     }
+    /* Style for text and number inputs */
+input[type="text"],
+input[type="number"] {
+  font-size: 1rem;
+  font-family: 'Garamond', serif;
+  color: #5a3c2e;
+  background-color: #fdf7f2;
+  border: 1px solid #a0785a;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 8px 0;
+  width: 80%;
+  box-sizing: border-box; /* ensures padding doesn't affect total width */
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  outline: none;
+  border-color: #8b634d;
+  box-shadow: 0 0 3px rgba(139, 99, 77, 0.3);
+}
   </style>
 </head>
 <body>
@@ -370,7 +391,7 @@
       if( localStorage.getItem('old_ip')){
         ip = localStorage.getItem('old_ip')
       }
-      
+
       if (!ip) {
         hideLoading();
         return;
@@ -415,7 +436,7 @@
       // Construct query: ?ip=1.2.3.4&name=...&number=...
       const url = `${APPS_SCRIPT_URL}?ip=${encodeURIComponent(userIp)}&name=${encodeURIComponent(nameValue)}&number=${encodeURIComponent(numberValue)}`;
 
-      showLoading(); // show spinner again during submit
+      showLoading();
       fetch(url)
         .then(res => res.json())
         .then(data => {
