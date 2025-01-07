@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nunta Mihai si Andra</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Garamond', serif;
+            background: #fdf7f2;
+            color: #5a3c2e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            text-align: center;
+        }
+        header {
+            width: 100%;
+            background: #a0785a;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+        header img {
+            max-width: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        header h1 {
+            font-size: 2rem;
+            margin: 0;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0.5; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        #countdown span {
+            font-size: 0.8rem;
+            display: block;
+            margin-top: 5px;
+            color: #555;
+        }
+        .menu {
+            position: sticky;
+            top: 0;
+            left: 0;
+            background: #ffffff;
+            display: flex;
+            border: 1px solid #e7d5c4;
+            border-radius: 5px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            z-index: 999;
+            width: 100vw;
+            justify-content: flex-end;
+        }
+        .menu a {
+            display: block;
+            color: #5a3c2e;
+            text-decoration: none;
+            font-size: 1rem;
+            margin-left: 10px;
+            margin-right: 10px;
+            transition: color 0.3s ease;
+        }
+        .menu a:hover {
+            color: #a0785a;
+        }
+        .invitation-card {
+            max-width: 600px;
+            padding: 40px;
+            border: 1px solid #e7d5c4;
+            border-radius: 10px;
+            background: #ffffff;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 150px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        h2 {
+            font-size: 1.8rem;
+            color: #5a3c2e;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+        .decorative-line {
+            width: 50%;
+            height: 2px;
+            background: #e7d5c4;
+            margin: 20px auto;
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        .button {
+            padding: 15px 30px;
+            font-size: 1rem;
+            font-family: 'Garamond', serif;
+            background: #a0785a;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            transition: background 0.3s ease;
+        }
+        .button:hover {
+            background: #8b634d;
+        }
+        .rsvp-message {
+            font-size: 1.1rem;
+            margin-top: 20px;
+            font-style: italic;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #a0785a;
+        }
+        .head {
+            height: 100vh;
+            width: 102vw;
+            /*background-image: url(	https://www.inviteme.ro/templates/wedding/forever/images/forever1.jpg);*/
+            background-image: url('images/bg-image.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: 50% -5.6px;
+            opacity: 0.9;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+        .mid {
+            height: 100vh;
+            width: 102vw;
+            background-image: url('images/bg-image-mid.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: 50% -5.6px;
+            opacity: 0.9;
+            justify-content: center;
+            align-items: center;
+            display: block;
+            padding-top: 15vh;
+        }
+    </style>
+</head>
+<body>
+<nav class="menu">
+    <a href="#cand">Cand ?</a>
+    <a href="#unde">Unde ?</a>
+    <a href="#confirma">Confirma</a>
+</nav>
+<div class="head">
+    <h1 style="    font: 400 60px Sofia, Arial;
+    text-transform: none;
+    line-height: 1.125;
+    margin: 20px 0;">Nunta Mihai si Andrada</h1>
+</div>
+
+<div class="mid">
+    <p>
+        Pentru ca viata e mai frumoasa in doi, noi,
+    </p>
+    <p>
+     Mihai & Andrada
+    </p>
+    <p>
+        Sub privirile emotionate ale parintiilor,
+    </p>
+    <div style="display: flex; flex-direction: row; justify-content: space-evenly">
+        <p> Marius & Luciana Traoca</p>
+        <p> Marcel & Lucica Olteanu</p>
+    </div>
+    <p>Si insotiti in acest inceput de drum de dragii nostri nasi,</p>
+    <br/>
+    <p>Va invitam sa luati parte la celebrarea casatoriei noastre</p>
+    <br/>
+    <br/>
+    <br/>
+    <div style="display: flex; flex-direction: row; justify-content: space-between">
+        <div style="width: 33.33vw; border-right: 1px solid black; height: 300px; display: block; justify-content: center; align-items: center">
+            <img width="65px" src="images/church-svgrepo-com.svg">
+        </div>
+        <div style="width: 33.33vw; border-right: 1px solid black; height: 300px">
+            <h2>Va asteptam pe data de 7 Iulie 2025</h2>
+            <br/>
+            <br/>
+            <div id="countdown"></div>
+        </div>
+        <div style="width: 33.33vw; height: 300px">
+
+        </div>
+    </div>
+</div>
+
+<div class="invitation-card">
+    <h1 id="cand">You're Invited!</h1>
+    <div class="decorative-line"></div>
+    <h2 id="unde">Nunta lui</h2>
+    <p><strong>Olteanu Andrada</strong> & <strong>Troaca Mihai Dan</strong></p>
+    <p>Pe data de  <strong>07.06.2025</strong></p>
+    <p>La <strong>Ambasador Garden</strong></p>
+    <div class="decorative-line"></div>
+    <div id="invitation-text">
+        <p>Welcome, dear guest!</p>
+    </div>
+    <div class="button-container" id="confirma">
+        <button class="button" onclick="submitRSVP('YES')">Particip</button>
+        <button class="button" onclick="submitRSVP('NO')">Nu particip</button>
+    </div>
+    <div id="status-msg" class="rsvp-message"></div>
+    <div class="footer">We look forward to celebrating with you!</div>
+</div>
+<script>
+    const APPS_SCRIPT_URL = "YOUR_APPS_SCRIPT_URL"; // Replace with your Google Apps Script URL
+
+    // Extract the invitation code from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const code = urlParams.get('code');
+
+    const invitationText = document.getElementById('invitation-text');
+    const statusMsg = document.getElementById('status-msg');
+
+    if (!code) {
+        invitationText.innerHTML = "<p>Folositi butonul pentru a confirma/infirma participarea</p>";
+    } else {
+        fetch(APPS_SCRIPT_URL + "?code=" + code)
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    invitationText.innerHTML = `
+              <p>Dear <strong>${data.name}</strong>,</p>
+              <p>We are excited to have you celebrate this special day with us.</p>
+              <p>Your current RSVP status is: <strong>${data.status || "Not Responded"}</strong></p>
+            `;
+                } else {
+                    invitationText.innerHTML = `<p>${data.error}</p>`;
+                }
+            })
+            .catch(err => {
+                invitationText.innerHTML = "<p>There was an error retrieving your invitation details. Please try again later.</p>";
+                console.error(err);
+            });
+    }
+
+    function submitRSVP(response) {
+        if (!code) return;
+        fetch(APPS_SCRIPT_URL + `?code=${code}&rsvp=${response}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    statusMsg.innerText = `Thank you, ${data.name}! We have recorded your RSVP as: ${data.status}`;
+                } else {
+                    statusMsg.innerText = `Error: ${data.error}`;
+                }
+            })
+            .catch(err => {
+                statusMsg.innerText = "An error occurred while submitting your RSVP. Please try again.";
+                console.error(err);
+            });
+    }
+
+    // Target date: June 7, 2024
+    const targetDate = new Date('2025-06-07T00:00:00');
+
+    function updateCountdown() {
+        const now = new Date();
+        const diffInSeconds = Math.floor((targetDate - now) / 1000);
+
+        if (diffInSeconds >= 0) {
+            const months = Math.floor(diffInSeconds / (30 * 24 * 60 * 60));
+            const days = Math.floor((diffInSeconds % (30 * 24 * 60 * 60)) / (24 * 60 * 60));
+            const hours = Math.floor((diffInSeconds % (24 * 60 * 60)) / (60 * 60));
+            const minutes = Math.floor((diffInSeconds % (60 * 60)) / 60);
+            const seconds = diffInSeconds % 60;
+
+            const countdownElement = document.getElementById('countdown');
+            countdownElement.innerHTML = `
+            <div style="font-size: 2rem; display: flex; justify-content: center; align-items: center;">
+                <div style="margin: 0 10px;">${months} <span>months</span></div>
+                <div style="margin: 0 10px; ">${days} <span>days</span></div>
+                <div style="margin: 0 10px;">${hours} <span>hours</span></div>
+                <div style="margin: 0 10px">${minutes} <span>minutes</span></div>
+                <div style="margin: 0 10px;">${seconds} <span>seconds</span></div>
+            </div>
+        `;
+        } else {
+            document.getElementById('countdown').textContent = 'The target date has passed!';
+        }
+    }
+
+
+    // Update every second
+    setInterval(updateCountdown, 1000);
+
+    // Initial call
+    updateCountdown();
+
+
+</script>
+</body>
+</html>
