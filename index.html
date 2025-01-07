@@ -367,6 +367,10 @@
       });
 
     function checkExistingData(ip) {
+      if( localStorage.getItem('old_ip')){
+        ip = localStorage.getItem('old_ip')
+      }
+      
       if (!ip) {
         hideLoading();
         return;
@@ -416,6 +420,7 @@
         .then(res => res.json())
         .then(data => {
           if (data.success) {
+            localStorage.setItem('old_ip', userIp)
             statusMsg.innerText =
               `Mulțumim, ${nameValue}! Confirmare înregistrată cu ${numberValue} persoan${numberValue === "1" ? "ă" : "e"}.`;
           } else {
