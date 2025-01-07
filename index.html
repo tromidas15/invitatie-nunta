@@ -81,7 +81,8 @@
             border-radius: 10px;
             background: #ffffff;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            margin-top: 150px;
+            margin-top: 20px;
+            margin-bottom: 20px;
         }
         h1 {
             font-size: 2.5rem;
@@ -134,7 +135,6 @@
         .head {
             height: 100vh;
             width: 102vw;
-            /*background-image: url(	https://www.inviteme.ro/templates/wedding/forever/images/forever1.jpg);*/
             background-image: url('images/bg-image.jpg');
             background-size: cover;
             background-repeat: no-repeat;
@@ -167,152 +167,169 @@
     <a href="#confirma">Confirma</a>
 </nav>
 <div class="head">
-    <h1 style="    font: 400 60px Sofia, Arial;
-    text-transform: none;
-    line-height: 1.125;
-    margin: 20px 0;">Nunta Mihai si Andrada</h1>
+    <h1 style="font: 400 60px Sofia, Arial; text-transform: none; line-height: 1.125; margin: 20px 0;">
+      Nunta Mihai si Andrada
+    </h1>
 </div>
 
 <div class="mid">
     <p>
-        Pentru ca viata e mai frumoasa in doi, noi,
+        Pentru că viața e mai frumoasă în doi, noi,
     </p>
-    <p>
-     Mihai & Andrada
-    </p>
-    <p>
-        Sub privirile emotionate ale parintiilor,
-    </p>
+    <p>Mihai & Andrada</p>
+    <p>Sub privirile emoționate ale părințiilor,</p>
     <div style="display: flex; flex-direction: row; justify-content: space-evenly">
-        <p> Marius & Luciana Traoca</p>
-        <p> Marcel & Lucica Olteanu</p>
+        <p>Marius & Luciana Traoca</p>
+        <p>Marcel & Lucica Olteanu</p>
     </div>
-    <p>Si insotiti in acest inceput de drum de dragii nostri nasi,</p>
+    <p>Și însoțiți în acest început de drum de dragii noștri nași,</p>
+    <p>Nardy & Cristina Roșu</p>
     <br/>
-    <p>Va invitam sa luati parte la celebrarea casatoriei noastre</p>
-    <br/>
-    <br/>
-    <br/>
+    <p>Vă invităm să luați parte la celebrarea căsătoriei noastre</p>
+    <br/><br/><br/>
     <div style="display: flex; flex-direction: row; justify-content: space-between">
         <div style="width: 33.33vw; border-right: 1px solid black; height: 300px; display: block; justify-content: center; align-items: center">
             <img width="65px" src="images/church-svgrepo-com.svg">
+            <p>Biserica Sfântul Ierarh Calinic</p>
+            <p>Ora 13:00</p>
+            <a href="https://maps.app.goo.gl/rigUtzsbtyBGPKx16">
+                <button class="button">Deschide locatia</button>
+            </a>
         </div>
         <div style="width: 33.33vw; border-right: 1px solid black; height: 300px">
-            <h2>Va asteptam pe data de 7 Iulie 2025</h2>
-            <br/>
-            <br/>
+            <h2>Vă așteptăm pe data de 7 Iunie 2025</h2>
+            <br/><br/>
             <div id="countdown"></div>
         </div>
         <div style="width: 33.33vw; height: 300px">
-
+            <img width="95px" src="images/champaign.svg">
+            <p>Restaurant Ambasador Garden Back</p>
+            <p>Ora 19:00</p>
+            <a href="https://g.co/kgs/inS4RuR">
+                <button class="button">Deschide locatia</button>
+            </a>
         </div>
     </div>
 </div>
 
 <div class="invitation-card">
-    <h1 id="cand">You're Invited!</h1>
     <div class="decorative-line"></div>
     <h2 id="unde">Nunta lui</h2>
     <p><strong>Olteanu Andrada</strong> & <strong>Troaca Mihai Dan</strong></p>
     <p>Pe data de  <strong>07.06.2025</strong></p>
     <p>La <strong>Ambasador Garden</strong></p>
     <div class="decorative-line"></div>
-    <div id="invitation-text">
-        <p>Welcome, dear guest!</p>
-    </div>
     <div class="button-container" id="confirma">
-        <button class="button" onclick="submitRSVP('YES')">Particip</button>
-        <button class="button" onclick="submitRSVP('NO')">Nu particip</button>
+      <div>Vă rugăm să confimrați prezența pană la data de: 18 Mai 2025</div>
+      <br>
+      <div>Nume</div>
+      <input id="name" type="text" >
+      <div> Număr de persoane</div>
+      <input id="number" type="number" >
+      <br>
+        <button class="button" onclick="submitRSVP('YES')">Confirma</button>
     </div>
     <div id="status-msg" class="rsvp-message"></div>
-    <div class="footer">We look forward to celebrating with you!</div>
 </div>
-<script>
-    const APPS_SCRIPT_URL = "YOUR_APPS_SCRIPT_URL"; // Replace with your Google Apps Script URL
 
-    // Extract the invitation code from the URL
+<script>
+    // 1) Replace with your deployed Apps Script URL:
+    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyqkVBau7OSDMTao3Kf49UijWEJ9dudGPlFvKNBTNKesvh1dS4wJ85s2lYUkw0LPUnG/exec";
+
+    // 2) Grab "?code=ABC123" from the URL
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get('code');
 
+    // References to DOM elements
     const invitationText = document.getElementById('invitation-text');
     const statusMsg = document.getElementById('status-msg');
 
-    if (!code) {
-        invitationText.innerHTML = "<p>Folositi butonul pentru a confirma/infirma participarea</p>";
-    } else {
-        fetch(APPS_SCRIPT_URL + "?code=" + code)
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    invitationText.innerHTML = `
-              <p>Dear <strong>${data.name}</strong>,</p>
+    let guestName = ""; // We'll store for display after RSVP
+
+    // 3) If we have a code, fetch the guest info from Apps Script
+    if (code) {
+      fetch(`${APPS_SCRIPT_URL}?code=${code}`)
+        .then(res => res.json())
+        .then(data => {
+          if (data.success) {
+            guestName = `${data.nume} ${data.prenume}`.trim();
+            invitationText.innerHTML = `
+              <p>Dear <strong>${guestName}</strong>,</p>
               <p>We are excited to have you celebrate this special day with us.</p>
               <p>Your current RSVP status is: <strong>${data.status || "Not Responded"}</strong></p>
             `;
-                } else {
-                    invitationText.innerHTML = `<p>${data.error}</p>`;
-                }
-            })
-            .catch(err => {
-                invitationText.innerHTML = "<p>There was an error retrieving your invitation details. Please try again later.</p>";
-                console.error(err);
-            });
+          } else {
+            invitationText.innerHTML = `<p>${data.error}</p>`;
+          }
+        })
+        .catch(err => {
+          invitationText.innerHTML = `<p>Error retrieving your invitation: ${err.message}</p>`;
+        });
+    } else {
     }
 
+    // 4) Handle button clicks for RSVP
     function submitRSVP(response) {
-        if (!code) return;
-        fetch(APPS_SCRIPT_URL + `?code=${code}&rsvp=${response}`)
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    statusMsg.innerText = `Thank you, ${data.name}! We have recorded your RSVP as: ${data.status}`;
-                } else {
-                    statusMsg.innerText = `Error: ${data.error}`;
-                }
-            })
-            .catch(err => {
-                statusMsg.innerText = "An error occurred while submitting your RSVP. Please try again.";
-                console.error(err);
-            });
+      let name = document.getElementById('name').value
+      let number = document.getElementById('number').value
+      if (!name) {
+        statusMsg.innerText = "Vă rugăm să completați numele pentru confirmare";
+        return;
+      }
+
+      if (!number) {
+        statusMsg.innerText = "Vă rugăm să completați numărul de persoane pentru confirmare";
+        return;
+      }
+
+      fetch(`${APPS_SCRIPT_URL}?name=${name}&number=${number}`)
+        .then(res => res.json())
+        .then(data => {
+          if (data.success) {
+            const finalStatus = data.status || (response === 'YES' ? "Particip" : "Nu particip");
+            statusMsg.innerText = `Multumim ${name} pentru confirmare!`;
+          } else {
+            statusMsg.innerText = `Error: ${data.error}`;
+          }
+        })
+        .catch(err => {
+          statusMsg.innerText = `An error occurred while submitting your RSVP: ${err.message}`;
+        });
     }
 
-    // Target date: June 7, 2024
+    // 5) Countdown Timer
     const targetDate = new Date('2025-06-07T00:00:00');
-
     function updateCountdown() {
-        const now = new Date();
-        const diffInSeconds = Math.floor((targetDate - now) / 1000);
+      const now = new Date();
+      const diffInSeconds = Math.floor((targetDate - now) / 1000);
 
-        if (diffInSeconds >= 0) {
-            const months = Math.floor(diffInSeconds / (30 * 24 * 60 * 60));
-            const days = Math.floor((diffInSeconds % (30 * 24 * 60 * 60)) / (24 * 60 * 60));
-            const hours = Math.floor((diffInSeconds % (24 * 60 * 60)) / (60 * 60));
-            const minutes = Math.floor((diffInSeconds % (60 * 60)) / 60);
-            const seconds = diffInSeconds % 60;
-
-            const countdownElement = document.getElementById('countdown');
-            countdownElement.innerHTML = `
+      if (diffInSeconds >= 0) {
+        const months = Math.floor(diffInSeconds / (30 * 24 * 60 * 60));
+        const days = Math.floor((diffInSeconds % (30 * 24 * 60 * 60)) / (24 * 60 * 60));
+        const hours = Math.floor((diffInSeconds % (24 * 60 * 60)) / (60 * 60));
+        const minutes = Math.floor((diffInSeconds % (60 * 60)) / 60);
+        const seconds = diffInSeconds % 60;
+        const countdownElement = document.getElementById('countdown');
+        if (countdownElement) {
+          countdownElement.innerHTML = `
             <div style="font-size: 2rem; display: flex; justify-content: center; align-items: center;">
-                <div style="margin: 0 10px;">${months} <span>months</span></div>
-                <div style="margin: 0 10px; ">${days} <span>days</span></div>
-                <div style="margin: 0 10px;">${hours} <span>hours</span></div>
-                <div style="margin: 0 10px">${minutes} <span>minutes</span></div>
-                <div style="margin: 0 10px;">${seconds} <span>seconds</span></div>
+              <div style="margin: 0 10px;">${months} <span>months</span></div>
+              <div style="margin: 0 10px;">${days} <span>days</span></div>
+              <div style="margin: 0 10px;">${hours} <span>hours</span></div>
+              <div style="margin: 0 10px">${minutes} <span>minutes</span></div>
+              <div style="margin: 0 10px;">${seconds} <span>seconds</span></div>
             </div>
-        `;
-        } else {
-            document.getElementById('countdown').textContent = 'The target date has passed!';
+          `;
         }
+      } else {
+        if (document.getElementById('countdown')) {
+          document.getElementById('countdown').textContent = 'The target date has passed!';
+        }
+      }
     }
 
-
-    // Update every second
     setInterval(updateCountdown, 1000);
-
-    // Initial call
     updateCountdown();
-
-
 </script>
 </body>
 </html>
